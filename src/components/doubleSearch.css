@@ -1,0 +1,54 @@
+.searchboxHolder2 {
+  width: 80vw;
+  height: 20vh;
+  margin: auto;
+  margin-top: 50px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.inputHolder {
+  width: 100%;
+  display: flex;
+}
+
+.input2 {
+  width: 60%;
+  height: 60%;
+  border-radius: 5px;
+  border: 1px solid grey;
+  outline: none;
+  font-size: 1em;
+  padding: 5px;
+  color: grey;
+  margin: 5px;
+
+}
+
+/*input:focus {
+  border:1px solid grey;
+  background-color: orange;
+}*/
+
+.button2 {
+  height: 20%;
+  width: 20%;
+  border-radius: 5px;
+  background-color: #ED5E3F;
+  outline: none;
+  border: none;
+  padding: 5px;
+  font-size: 1em;
+  color: white;
+  margin-top: 10px;
+
+}
+
+button:hover {
+  background-color: #D94323;
+}

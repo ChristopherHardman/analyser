@@ -1,22 +1,22 @@
 const defaultState = {
-  events: {}
+  summary: {}
 }
 
-const objectifyArray = (array, idKey = 'title') => {
-  return array.reduce((accum, item) => {
-    accum[item[idKey]] = item
-    return accum;
-  }, {})
-};
+// const objectifyArray = (array, idKey = 'title') => {
+//   return array.reduce((accum, item) => {
+//     accum[item[idKey]] = item
+//     return accum;
+//   }, {})
+// };
 
 const reducer = (state = defaultState, action) => {
   switch (action.type) {
-    case 'ADD_EVENTS':
+    case 'ADD_SUMMARY':
+      console.log('ACTION',action.summary)
       return {
         ...state,
-        events: {
-          ...state.events,
-          ...objectifyArray(action.events)
+        summary: {
+          ...action.summary
         }
       }
 

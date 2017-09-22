@@ -5,6 +5,7 @@ import Headline from '../components/headline'
 import WordCount from '../analysisComponents/wordCount'
 import Details from '../components/details'
 import Summary from '../analysisComponents/summary'
+import Sentiment from '../analysisComponents/sentiment'
 
 class Analysis extends React.Component {
     render () {
@@ -14,6 +15,7 @@ class Analysis extends React.Component {
           <Headline />
           <WordCount />
           <Summary />
+          <Sentiment />
           <Details />
         </div>
       )

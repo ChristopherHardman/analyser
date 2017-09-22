@@ -1,3 +1,19 @@
+.BubbleContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 25px;
+}
+
+.Frequency {
+  display: flex;
+}
+
+h2 {
+  text-align: center;
+  color: grey;
+  width: 100%;
+}
+
 .circle {
   height: 50px;
   width: 50px;
@@ -19,11 +35,5 @@
   width: 30px;
   border-radius: 50%;
   background-color: white;
-  margin: 25px;
-}
-
-.BubbleContainer {
-  display: flex;
-  flex-wrap: wrap;
   margin: 25px;
 }

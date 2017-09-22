@@ -1,0 +1,19 @@
+.switchHolder {
+  display: flex;
+  justify-content: center;
+
+}
+
+a {
+  margin: 10px;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 7px;
+  background: #ED5E3F;
+  color: white;
+}
+
+
+a:hover {
+  background-color: #D94323;
+}

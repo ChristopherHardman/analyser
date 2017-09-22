@@ -10,11 +10,11 @@ class Analysis extends React.Component {
     render () {
       return (
         <div>
-        <Header />
-        <Headline />
-        <WordCount />
-        <Summary />
-        <Details />
+          <Header />
+          <Headline />
+          <WordCount />
+          <Summary />
+          <Details />
         </div>
       )
     }

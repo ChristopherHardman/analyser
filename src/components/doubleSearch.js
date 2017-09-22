@@ -2,6 +2,14 @@ import React from 'react';
 import './doubleSearch.css';
 
 class DoubleSearch extends React.Component {
+
+click = () => {
+
+  console.log('CLICK 2');
+
+}
+
+
     render () {
       return (
         <div className="searchboxHolder2">
@@ -9,7 +17,7 @@ class DoubleSearch extends React.Component {
           <input className="input2" type="text" placeholder="Add first website address here..." />
           <input className="input2" type="text" placeholder="Add second website address here..." />
           </div>
-          <button className="button2">Create</button>
+          <button className="button2" onClick={this.click}>Compare</button>
         </div>
       )
     }

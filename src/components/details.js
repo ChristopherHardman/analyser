@@ -4,7 +4,7 @@ import './details.css';
 class Details extends React.Component {
     render () {
       return (
-        <div>
+        <div className="detailsHolder">
           <p>About Us - Terms of Use - Contact</p>
         </div>
       )

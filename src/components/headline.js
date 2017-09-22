@@ -6,7 +6,7 @@ class Headline extends React.Component {
       return (
         <div className="headlineHolder">
           <h2>Access insights from crowdsourced content</h2>
-          <p>Compare products, articles, answers</p>
+          <p>Compare products, articles, answers...</p>
         </div>
       )
     }

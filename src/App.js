@@ -4,14 +4,10 @@ import './App.css';
 import './city-of-london_gal.jpg';
 
 
-//Import components
-import Header from './components/header'
-import Searchbox from './components/searchbox'
-import Details from './components/details'
-import Headline from './components/headline'
-import DoubleSearch from './components/doubleSearch'
-import WordCount from './analysisComponents/wordCount'
-
+//Import containers
+import Home from './containers/home'
+import Home2 from './containers/home2'
+import Analysis from './containers/analysis'
 
 class App extends Component {
   render() {
@@ -23,12 +19,10 @@ class App extends Component {
            <li><Link to="/compare">Compare</Link></li>
            <li><Link to="/analysis">Analysis</Link></li>
          </ul>
-         <Route exact path="/" component={Header}/>
-         <Route exact path="/" component={Headline}/>
-         <Route exact path="/" component={Searchbox}/>
+         <Route exact path="/" component={Home}/>
+         <Route path="/compare" component={Home2}/>
+         <Route path="/analysis" component={Analysis}/>
 
-         <Route path="/analysis" component={WordCount}/>
-         <Route path="/compare" component={DoubleSearch}/>
        </div>
       </Router>
     )

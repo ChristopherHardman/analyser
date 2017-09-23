@@ -1,41 +1,43 @@
 import React from 'react';
 import './wordCount.css';
+import { connect } from 'react-redux';
 
 class WordCount extends React.Component {
   constructor(props) {
     super(props);
-    this.wordCount();
+    this.getDataConcepts();
   }
 
-  wordCount =() => {
-    let raw = 'Money isn’t the most important thing in the world. Your time is. the most important thing in the world. Your time is.';
-    let ignore = ['a', 'the', 'it', 'we', 'I', 'you', 'your', 'its', 'from', 'for', 'as', 'an', 'is', 'in',]
-    let positive = ['good','great', 'nice', 'wonderful', 'terrific', 'superlative','sensational', 'fantastic' ];
-    let negative = ['bad', 'terrible', 'awful', 'disappointing', 'horrible'];
-    let raw1 = raw.toLowerCase().split(' ');
-    let res = {};
-    let res1 = [];
-      for (let i=0; i<raw1.length; i++) {
-          if (res[raw1[i]]) res[raw1[i]] ++;
-          else {
-            if (ignore.indexOf(raw1[i]) === -1) res[raw1[i]] = 1;
-          }
-        }
-      for (var key in res) {
-        res1.push(
-          <div>{key} : {res[key]}</div>
-        )
-      }
-      console.log('RES1', res1);
-      return res1;
+
+
+    //Gets summary of concepts from the API
+    getDataConcepts = () => {
+    const searchParams = new URLSearchParams();
+    searchParams.append('key', '37bc84eb8886f5410c62335d9f653e8d');
+    searchParams.append('lang', 'en');
+    searchParams.append('url', this.props.search);
+    searchParams.append('tt', 'a');
+    return fetch('http://api.meaningcloud.com/topics-2.0',  {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+      body: searchParams
+    })
+    .then(response => response.json())
+    .then(response => {
+      console.log('CONCEPTS', response)
+      this.props.addConcepts(response);
+     })
     }
+
 
     render () {
       return (
         <div className="BubbleContainer">
           <h2 className="WordCountTitle">Word Frequency</h2>
           <div className="Frequency">
-            <div>{this.wordCount()}</div>
+            <div></div>
             <div className = "circle"></div>
             <div className = "circle1"></div>
             <div className = "circle2"></div>
@@ -46,4 +48,21 @@ class WordCount extends React.Component {
     }
 }
 
-export default WordCount;
+
+const mapStateToProps = (state) => {
+  return {
+    concepts: state.concepts,
+    search: state.search
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addConcepts: (concepts) => dispatch({
+      type: 'ADD_CONCEPTS',
+      concepts
+    })
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)  (WordCount);

@@ -8,11 +8,13 @@ class Summary extends React.Component {
     this.getDataSummarise();
   }
 
+
+//gets article summary from the API. Can change sumary length through sentence number.
   getDataSummarise = () => {
   const searchParams = new URLSearchParams();
   searchParams.append('key', '37bc84eb8886f5410c62335d9f653e8d');
   searchParams.append('lang', 'en');
-  searchParams.append('url', 'https://en.wikipedia.org/wiki/Barcelona');
+  searchParams.append('url', this.props.search.input);
   searchParams.append('sentences', '5');
   return fetch('http://api.meaningcloud.com/summarization-1.0',  {
     method: 'POST',
@@ -23,7 +25,7 @@ class Summary extends React.Component {
   })
   .then(response => response.json())
   .then(response => {
-    console.log('INITIAL', response)
+    console.log('SUMMARY', response)
     this.props.addSummary(response);
   })
 }
@@ -36,12 +38,11 @@ getSummary() {
   }
 }
 
-
     render () {
       return (
         <div>
         <h2>Summary</h2>
-        <div>{this.getSummary()}</div>
+        <div className="summaryHolder">{this.getSummary()}</div>
         </div>
       )
     }
@@ -49,7 +50,8 @@ getSummary() {
 
 const mapStateToProps = (state) => {
   return {
-    summary: state.summary
+    summary: state.summary,
+    search: state.search
   }
 }
 

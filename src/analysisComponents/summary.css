@@ -1,3 +1,9 @@
 .summaryHolder {
   padding: 25px;
+  color: grey;
+
+}
+
+li {
+  margin-bottom: 15px;
 }

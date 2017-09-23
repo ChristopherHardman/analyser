@@ -8,32 +8,25 @@
   display: flex;
 }
 
+h3{
+  text-align: center;
+  color: orange;
+}
+
 h2 {
   text-align: center;
   color: grey;
   width: 100%;
 }
 
-.circle {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  background-color: red;
-  margin: 25px;
+.conceptHolder {
+  padding: 10px;
+  font-size: 1em;
+  color: grey;
 }
 
-.circle1 {
-  height: 75px;
-  width: 75px;
-  border-radius: 50%;
-  background-color: green;
-  margin: 25px;
-}
-
-.circle2 {
-  height: 30px;
-  width: 30px;
-  border-radius: 50%;
-  background-color: white;
-  margin: 25px;
+.entityHolder {
+  padding: 10px;
+  font-size: 1em;
+  color: grey;
 }

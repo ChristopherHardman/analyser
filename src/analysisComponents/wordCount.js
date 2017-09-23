@@ -32,17 +32,25 @@ getDataConcepts = () => {
 
 getConcepts () {
   let temp = this.props.concepts.concept_list;
-  if (temp !== undefined) console.log('TEMP', temp[0]['form']);
-  // let res = [];
-  // for (let i = 0; i < temp.length; i++){
-  // res.push(temp[i].form)
-  // }
-  // return res;
+  let res = [];
+  if (temp !== undefined){
+  for (var i = 0; i < temp.length; i++) {
+    res.push(temp[i]['form']+ ' - ');
+  }
+  return res;
+  }
   }
 
-
-
-
+  getEntities () {
+    let temp = this.props.concepts.entity_list;
+    let res = [];
+    if (temp !== undefined){
+    for (var i = 0; i < temp.length; i++) {
+      res.push(temp[i]['form']+ ' - ');
+    }
+    return res;
+    }
+    }
 
 
 render () {
@@ -50,13 +58,10 @@ render () {
     <div className="BubbleContainer">
       <h2 className="WordCountTitle">Word Frequency</h2>
         <div className="Frequency">
-          <div></div>
-            <div className = "circle"></div>
-            <div className = "circle1"></div>
-            <div className = "circle2"></div>
-            <div>{this.getConcepts()}</div>
-          </div>
+            <div className="conceptHolder"><h3>Concepts</h3>{this.getConcepts()}</div>
+            <div className="entityHolder"><h3>Entitites</h3>{this.getEntities()}</div>
         </div>
+    </div>
       )
     }
 }

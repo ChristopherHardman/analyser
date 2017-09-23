@@ -28,14 +28,21 @@ class Summary extends React.Component {
           console.log('SUMMARY', response)
           this.props.addSummary(response);
     })
-  
+
   }
 
 getSummary() {
   let sum = this.props.summary.summary;
     if (sum !== undefined) {
-      console.log('SUM', sum)
-      return <div>{sum}</div>
+      let res = [];
+      let sum1 = sum.split('. ');
+      for (var i = 0; i < sum1.length; i++) {
+        res.push(
+          <li>{sum1[i]}</li>
+        )
+      }
+      return res
+      // return <div>{sum}</div>
   }
 }
 

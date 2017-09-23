@@ -2,8 +2,10 @@ const defaultState = {
   summary: {},
   concepts: {},
   sentiment: {},
-  search: {}
+  search: {input: 'https://en.wikipedia.org/wiki/Natural_language_processing'}
 }
+
+//
 
 // const objectifyArray = (array, idKey = 'title') => {
 //   return array.reduce((accum, item) => {
@@ -15,20 +17,19 @@ const defaultState = {
 const reducer = (state = defaultState, action) => {
   switch (action.type) {
     case 'ADD_SUMMARY':
+    console.log('Received Summary')
       return {
         ...state,
-        summary: {
-          ...action.summary
-        }
+        summary: action.summary
       }
     case 'ADD_SEARCH':
-      return {
+    console.log('Received Search term', action.search)
+      let res= {
         ...state,
-        search: {
-          ...action.search
-        }
+        search: action.search
       }
-
+      console.log('RES', res.search)
+      return res
     case 'ADD_CONCEPTS':
       return {
         ...state,
@@ -36,7 +37,6 @@ const reducer = (state = defaultState, action) => {
           ...action.concepts
         }
       }
-
     case 'ADD_SENTIMENT':
       return {
         ...state,
@@ -44,10 +44,8 @@ const reducer = (state = defaultState, action) => {
         ...action.sentiment
         }
       }
-
       default:
     }
-    console.log('STATE', state);
     return state;
   }
 

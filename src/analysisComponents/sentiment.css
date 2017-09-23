@@ -1,4 +1,13 @@
-.SentimentScore {
-  text-align: center;
-  font-size: 3em;
+.sentimentHolder {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px;
+  color: grey;
+}
+
+
+.sentimentScore {
+  margin:25px;
+  font-size: 1.5em;
 }

@@ -8,49 +8,59 @@ class Sentiment extends React.Component {
     this.getSentiment();
   }
 
-
-sentiment = () => {
-  let raw = 'Money isn’t the most important thing in the world. Your time is good or bad. terrific , wonderful.';
-  let ignore = ['a', 'the', 'it', 'we', 'I', 'you', 'your', 'its', 'from', 'for', 'as', 'an', 'is', 'in',]
-  let positive = ['good','great', 'nice', 'wonderful', 'terrific', 'superlative','sensational', 'fantastic' ];
-  let negative = ['bad', 'terrible', 'awful', 'disappointing', 'horrible'];
-    let raw1 = raw.toLowerCase().split(' ');
-    let negativeCount = 0;
-    let positiveCount = 0;
-    for (let j = 0; j < raw1.length ; j++) {
-      if (positive.indexOf(raw1[j]) !== -1) positiveCount ++;
-      if (negative.indexOf(raw1[j]) !== -1) negativeCount ++;
-    }
-    return <div>{positiveCount-negativeCount}</div>;
-  }
-
   getSentiment = () => {
-  const searchParams = new URLSearchParams();
-  searchParams.append('key', '37bc84eb8886f5410c62335d9f653e8d');
-  searchParams.append('lang', 'en');
-  searchParams.append('txt', this.props.input);
-  return fetch('http://api.meaningcloud.com/sentiment-2.1',  {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/x-www-form-urlencoded',
-    },
-    body: searchParams
-  })
-  .then(response => response.json())
-  .then(response => {console.log('SENTIMENT', response)
-    this.props.addSentiment(response);
-  })
+    const searchParams = new URLSearchParams();
+    searchParams.append('key', '37bc84eb8886f5410c62335d9f653e8d');
+    searchParams.append('lang', 'en');
+    searchParams.append('url', this.props.search.input);
+      return fetch('http://api.meaningcloud.com/sentiment-2.1',  {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/x-www-form-urlencoded',
+          },
+          body: searchParams
+        })
+        .then(response => response.json())
+        .then(response => {console.log('SENTIMENT', response)
+          this.props.addSentiment(response);
+      })
   }
 
+getPositivity() {
+    let test =  {sentiment: 'Very positive'}
+    let sum = this.props.sentiment;
+    return <p>Positivity: {sum.score_tag}</p>
+  }
 
-    render () {
-      return (
-        <div>
-        <h2>Sentiment</h2>
-          <div className="SentimentScore">{this.sentiment()}</div>
-        </div>
-      )
-    }
+getConfidence() {
+    let test =  {sentiment: 'Very positive'}
+    let sum = this.props.sentiment;
+    return <p>Confidence: {sum.confidence}</p>
+  }
+
+getIrony() {
+    let test =  {sentiment: 'Very positive'}
+    let sum = this.props.sentiment;
+    return <p>Irony: {sum.irony}</p>
+  }
+
+getAgreement() {
+    let test =  {sentiment: 'Very positive'}
+    let sum = this.props.sentiment;
+    return <p>Agreement: {sum.agreement}</p>
+  }
+
+render () {
+  return (
+    <div className="sentimentHolder">
+      <h2>Sentiment</h2>
+      <div className="sentimentScore">{this.getPositivity()}</div>
+      <div className="sentimentScore">{this.getConfidence()}</div>
+      <div className="sentimentScore">{this.getIrony()}</div>
+      <div className="sentimentScore">{this.getAgreement()}</div>
+    </div>
+    )
+  }
 }
 
 const mapStateToProps = (state) => {

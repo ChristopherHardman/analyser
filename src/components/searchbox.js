@@ -29,7 +29,7 @@ clickHandler = (e) => {
     } else {
         console.log('INPUT', this.state);
         this.props.addSearch(this.state);
-        setTimeout(this.setState({redirect: true}), 5000);
+        setTimeout(() => this.setState({redirect: true}), 10000);
     }
 }
 
@@ -56,11 +56,9 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-
   return {
     addSearch: (search) =>
     {
-      console.log('Hi')
       dispatch({
       type: 'ADD_SEARCH',
       search

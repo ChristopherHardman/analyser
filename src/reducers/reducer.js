@@ -2,7 +2,9 @@ const defaultState = {
   summary: {},
   concepts: {},
   sentiment: {},
-  search: {}
+  search: {},
+  search2: {},
+  search3: {}
 }
 
 // const objectifyArray = (array, idKey = 'title') => {
@@ -33,7 +35,7 @@ const reducer = (state = defaultState, action) => {
         ...state,
         concepts: {
           ...action.concepts
-        }
+        } 
       }
     case 'ADD_SENTIMENT':
       return {
@@ -41,6 +43,13 @@ const reducer = (state = defaultState, action) => {
         sentiment: {
         ...action.sentiment
         }
+      }
+    case 'ADD_SEARCH_DOUBLE':
+      console.log('DOUBLE', action.search2.input2)
+      return {
+        ...state,
+        search2: action.search2.input2,
+        search3: action.search2.input3
       }
       default:
     }

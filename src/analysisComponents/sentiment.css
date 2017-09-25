@@ -3,7 +3,8 @@
   flex-wrap: wrap;
   justify-content: center;
   margin: 10px;
-  border-bottom: 1px solid grey;
+  margin-top: 25px;
+  border-bottom: 1px solid #ED5E3F;
 }
 
 .sentimentScore {
@@ -15,4 +16,9 @@
 
 h2 {
   font-family: 'Source Sans Pro', sans-serif;
+}
+
+span {
+  color: grey;
+  font-size: 1.4em;
 }

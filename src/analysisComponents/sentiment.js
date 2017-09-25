@@ -6,14 +6,12 @@ import { connect } from 'react-redux';
 class Sentiment extends React.Component {
   constructor(props) {
     super(props);
-    this.testIBM();
+      this.getSentiment();
   }
 
-componentDidUpdate = () => {
-  this.getSentiment();
-}
 
   getSentiment = () => {
+    console.log('GetSentiment Fired');
     const searchParams = new URLSearchParams();
     searchParams.append('key', '37bc84eb8886f5410c62335d9f653e8d');
     searchParams.append('lang', 'en');
@@ -31,57 +29,28 @@ componentDidUpdate = () => {
       })
   }
 
-
-  testIBM = () => {
-    fetch('https://gateway.watsonplatform.net/natural-language-understanding/api',  {    //http://cw-events.herokuapp.com/events
-      method: 'POST',
-        'username': '874708dc-bc4a-4bc1-b18c-f955795228eb',
-        'password': 'ufpsegTsKYch',
-        'version_date': '2017-02-27',
-
-          body: {'text': 'IBM is an American multinational technology company headquartered in Armonk',
-          'features': {
-            'entities': {
-              'emotion': true,
-              'sentiment': true,
-              'limit': 2
-            },
-            'keywords': {
-            'emotion': true,
-            'sentiment': true,
-            'limit': 2
-          }
-        }
-        }}
-)
-.then(response =>response.json())
-.then(result => console.log('IBM', result))
-}
-
-
-
 getPositivity() {
     let test =  {sentiment: 'Very positive'}
     let sum = this.props.sentiment;
-    return <p>Positivity: {sum.score_tag}</p>
+    return <p><span>Positivity:</span> {sum.score_tag}</p>
   }
 
 getConfidence() {
     let test =  {sentiment: 'Very positive'}
     let sum = this.props.sentiment;
-    return <p>Confidence: {sum.confidence}</p>
+    return <p><span>Confidence:</span> {sum.confidence}</p>
   }
 
 getIrony() {
     let test =  {sentiment: 'Very positive'}
     let sum = this.props.sentiment;
-    return <p>Irony: {sum.irony}</p>
+    return <p><span>Irony:</span> {sum.irony}</p>
   }
 
 getAgreement() {
     let test =  {sentiment: 'Very positive'}
     let sum = this.props.sentiment;
-    return <p>Agreement: {sum.agreement}</p>
+    return <p><span>Agreement:</span>{sum.agreement}</p>
   }
 
 render () {

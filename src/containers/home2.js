@@ -4,11 +4,12 @@ import Headline from '../components/headline'
 import DoubleSearch from '../components/doubleSearch'
 import Details from '../components/details'
 import Switch from '../components/switch'
+import './home2.css';
 
 class Home extends React.Component {
     render () {
       return (
-        <div>
+        <div className="homeHolder">
           <Header />
           <Headline />
           <Switch />

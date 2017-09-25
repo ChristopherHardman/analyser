@@ -2,16 +2,25 @@
   display: flex;
   flex-wrap: wrap;
   margin: 10px;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #ED5E3F;
+  justify-content: center;
 }
 
-.Frequency {
+.frequency {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.textHolder {
+  display: flex;
+  justify-content: center;
+
 }
 
 h3{
   text-align: center;
-  color: orange;
+  color: grey;
   font-family: 'Source Sans Pro', sans-serif;
 }
 
@@ -25,13 +34,16 @@ h2 {
 .conceptHolder {
   padding: 10px;
   font-size: 1em;
+  width: 50%;
   color: grey;
   font-family: 'Source Sans Pro', sans-serif;
+  border-right: 1px solid #ED5E3F;
 }
 
 .entityHolder {
   padding: 10px;
   font-size: 1em;
+  width: 50%;
   color: grey;
   font-family: 'Source Sans Pro', sans-serif;
 }
@@ -40,6 +52,8 @@ h2 {
   width: 100 vw;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .bubble {
@@ -50,7 +64,7 @@ h2 {
   margin: 10px;
   font-size: 0.5em;
   text-align: center;
-  vertical-align: top;
+  vertical-align: center;
 }
 
 .label {
@@ -58,8 +72,11 @@ h2 {
   color: grey;
   background: white;
   opacity: 0.8;
+  margin-top: 50px;
 }
 
 .innerBubbleHolder {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }

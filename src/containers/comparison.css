@@ -1,0 +1,19 @@
+.sentimentHolder {
+  display: flex;
+  justify-content: center;
+}
+
+.innerSentimentHolder {
+  width: 45%;
+  font-size: 1em;
+}
+
+.summaryHolder {
+  display: flex;
+  justify-content: center; 
+}
+
+.innerSummaryHolder {
+  width: 45%;
+  font-size: 1em;
+}

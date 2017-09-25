@@ -2,10 +2,8 @@ const defaultState = {
   summary: {},
   concepts: {},
   sentiment: {},
-  search: {input: 'https://en.wikipedia.org/wiki/Natural_language_processing'}
+  search: {}
 }
-
-//
 
 // const objectifyArray = (array, idKey = 'title') => {
 //   return array.reduce((accum, item) => {

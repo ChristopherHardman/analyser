@@ -2,11 +2,16 @@ import React from 'react';
 import './sentiment.css';
 import { connect } from 'react-redux';
 
+
 class Sentiment extends React.Component {
   constructor(props) {
     super(props);
-    this.getSentiment();
+    this.testIBM();
   }
+
+componentDidUpdate = () => {
+  this.getSentiment();
+}
 
   getSentiment = () => {
     const searchParams = new URLSearchParams();
@@ -25,6 +30,35 @@ class Sentiment extends React.Component {
           this.props.addSentiment(response);
       })
   }
+
+
+  testIBM = () => {
+    fetch('https://gateway.watsonplatform.net/natural-language-understanding/api',  {    //http://cw-events.herokuapp.com/events
+      method: 'POST',
+        'username': '874708dc-bc4a-4bc1-b18c-f955795228eb',
+        'password': 'ufpsegTsKYch',
+        'version_date': '2017-02-27',
+
+          body: {'text': 'IBM is an American multinational technology company headquartered in Armonk',
+          'features': {
+            'entities': {
+              'emotion': true,
+              'sentiment': true,
+              'limit': 2
+            },
+            'keywords': {
+            'emotion': true,
+            'sentiment': true,
+            'limit': 2
+          }
+        }
+        }}
+)
+.then(response =>response.json())
+.then(result => console.log('IBM', result))
+}
+
+
 
 getPositivity() {
     let test =  {sentiment: 'Very positive'}

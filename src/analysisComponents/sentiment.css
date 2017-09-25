@@ -3,10 +3,16 @@
   flex-wrap: wrap;
   justify-content: center;
   margin: 10px;
+  border-bottom: 1px solid grey;
 }
 
 .sentimentScore {
   margin:25px;
   font-size: 1.2em;
   color: green;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+h2 {
+  font-family: 'Source Sans Pro', sans-serif;
 }

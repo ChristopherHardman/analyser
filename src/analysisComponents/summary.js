@@ -5,17 +5,19 @@ import { connect } from 'react-redux';
 class Summary extends React.Component {
   constructor(props) {
     super(props);
-    this.getDataSummarise();
   }
+
+componentDidUpdate = () => {
+  this.getDataSummarise();
+}
 
 //gets article summary from the API. Can change sumary length through sentence number.
   getDataSummarise = () => {
-
     const searchParams = new URLSearchParams();
     searchParams.append('key', '37bc84eb8886f5410c62335d9f653e8d');
     searchParams.append('lang', 'en');
     searchParams.append('url', this.props.search.input);
-    searchParams.append('sentences', '5');
+    searchParams.append('sentences', '10');
       return fetch('http://api.meaningcloud.com/summarization-1.0',  {
         method: 'POST',
         headers: {
@@ -35,7 +37,7 @@ getSummary() {
   let sum = this.props.summary.summary;
     if (sum !== undefined) {
       let res = [];
-      let sum1 = sum.split('. ');
+      let sum1 = sum.split('. ');   //use map
       for (var i = 0; i < sum1.length; i++) {
         res.push(
           <li>{sum1[i]}</li>
@@ -45,6 +47,7 @@ getSummary() {
       // return <div>{sum}</div>
   }
 }
+
 
 render () {
   return (

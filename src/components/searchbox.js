@@ -1,14 +1,18 @@
 import React from 'react';
 import './searchbox.css';
 import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route, Link, Redirect, withRouter} from 'react-router-dom';
+
 
 class Searchbox extends React.Component {
   constructor(props) {
     super(props);
+
   }
 
 state = {
   input: '',
+  redirect: false,
 }
 
 inputChanged = (event) => {
@@ -23,18 +27,25 @@ clickHandler = (e) => {
   if (!this.state.input){
     alert("no input detected")
     } else {
-        console.log('INPUT', this.state)
+        console.log('INPUT', this.state);
         this.props.addSearch(this.state);
+        setTimeout(this.setState({redirect: true}), 5000);
     }
 }
 
 render () {
+
+  if (!this.state.redirect) {
   return (
     <div className="searchboxHolder">
       <input type="text" placeholder="Add website address here..." onChange={this.inputChanged} value={this.state.input} />
-      <button onClick={this.clickHandler}>Create</button>
+      <button onClick={this.clickHandler}>Submit</button>
     </div>
     )
+  }
+  return (
+    <Redirect to="/analysis" />
+  )
   }
 }
 

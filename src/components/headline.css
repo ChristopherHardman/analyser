@@ -7,11 +7,14 @@
   align-items: center;
 }
 
-h2 {
-  color: blue;
+h1 {
+  color: #ED5E3F;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
-p {
-  color: blue;
-  font-size: 1em;
+h2 {
+  color: #ED5E3F;
+  margin-bottom: 25px;
+  margin-top: -10px;
+  font-family: 'Source Sans Pro', sans-serif;
 }

@@ -1,9 +1,12 @@
 .summaryHolder {
-  padding: 25px;
+  margin: 10px;
+  padding-left: 35px;
+  padding-right: 35px;
   color: grey;
-
+  border-bottom: 1px solid grey;
 }
 
 li {
   margin-bottom: 15px;
+  font-family: 'Source Sans Pro', sans-serif;
 }

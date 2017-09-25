@@ -4,16 +4,17 @@ import Searchbox from '../components/searchbox'
 import Details from '../components/details'
 import Headline from '../components/headline'
 import Switch from '../components/switch'
+import './home.css';
 
 class Home extends React.Component {
     render () {
       return (
-        <div>
+        <div className="homeHolder">
           <Header />
           <Headline />
           <Switch />
           <Searchbox />
-          <Details />
+          <div className="detailsHolder"><Details /></div>
         </div>
       )
     }

@@ -1,0 +1,14 @@
+.homeHolder {
+height: 100vh;
+width: 100vw;
+display: flex;
+flex-direction: column;
+align-content: space-around;
+background-image:url("../HiRes.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+.detailsHolder {
+  align-self: flex-end;
+}

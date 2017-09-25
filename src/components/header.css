@@ -1,10 +1,10 @@
-h3 {
-  font-size: 1.5em;
-  color: blue;
-  margin: 25px;
+
+.headerHolder {
+  margin-top: 15px;
 }
 
-span {
-  font-size: 0.7em;
-  color: orange;
+a {
+  font-size: 1.5em;
+  margin: 25px;
+  font-family: 'Source Sans Pro', sans-serif;
 }

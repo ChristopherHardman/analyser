@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Redirect, withRouter} from 'react-router-dom';
 import './App.css';
 import './city-of-london_gal.jpg';
 
@@ -9,7 +9,6 @@ import Home2 from './containers/home2'
 import Analysis from './containers/analysis'
 
 class App extends Component {
-
 
   render() {
     return (

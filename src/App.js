@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link, Redirect, withRouter} from 'react-router-dom';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import './city-of-london_gal.jpg';
 

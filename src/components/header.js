@@ -5,7 +5,7 @@ class Header extends React.Component {
     render () {
       return (
         <div className="headerHolder">
-          <a href="/">CrowdSorcerer</a>
+          <a className="headerLink" href="/">CrowdSorcerer</a>
         </div>
       )
     }

@@ -11,11 +11,14 @@ class WordCount extends React.Component {
 
 //Gets summary of concepts from the API
 getDataConcepts = () => {
+    let target = this.props.search.input;
+    if (this.props.switch ==="2") target = this.props.search2;
+    if (this.props.switch ==="3") target = this.props.search3;
     console.log('GetConcepts Fired');
     const searchParams = new URLSearchParams();
       searchParams.append('key', '37bc84eb8886f5410c62335d9f653e8d');
       searchParams.append('lang', 'en');
-      searchParams.append('url', this.props.search.input);
+      searchParams.append('url', target);
       searchParams.append('tt', 'a');
         return fetch('http://api.meaningcloud.com/topics-2.0',  {
           method: 'POST',
@@ -27,13 +30,11 @@ getDataConcepts = () => {
         .then(response => response.json())
         .then(response => {
           console.log('CONCEPTS', response)
+          if (this.props.switch ==="2") this.props.addConcepts2(response);
+          if (this.props.switch ==="3") this.props.addConcepts3(response);
           this.props.addConcepts(response);
          })
         }
-
-
-
-
 
 
 getWatson = () => {
@@ -71,6 +72,8 @@ getWatson = () => {
 
 getConcepts () {
   let temp = this.props.concepts.concept_list;
+  if (this.props.switch ==="2") temp = this.props.concepts2.concept_list;
+  if (this.props.switch ==="3") temp = this.props.concepts3.concept_list;
   let res = [];
   if (temp !== undefined){
   for (var i = 0; i < temp.length; i++) {
@@ -82,6 +85,8 @@ getConcepts () {
 
 getEntities () {
   let temp = this.props.concepts.entity_list;
+  if (this.props.switch ==="2") temp = this.props.concepts2.entity_list;
+  if (this.props.switch ==="3") temp = this.props.concepts.entity_list;
   let res = [];
   if (temp !== undefined){
   for (var i = 0; i < temp.length; i++) {
@@ -129,12 +134,14 @@ render () {
     }
 }
 
-
-
 const mapStateToProps = (state) => {
   return {
     concepts: state.concepts,
-    search: state.search
+    concepts2: state.concepts2,
+    concepts3: state.concepts3,
+    search: state.search,
+    search2: state.search2,
+    search3: state.search3
   }
 }
 
@@ -142,6 +149,14 @@ const mapDispatchToProps = (dispatch) => {
   return {
     addConcepts: (concepts) => dispatch({
       type: 'ADD_CONCEPTS',
+      concepts
+    }),
+    addConcepts2: (concepts) => dispatch({
+      type: 'ADD_CONCEPTS2',
+      concepts
+    }),
+    addConcepts3: (concepts) => dispatch({
+      type: 'ADD_CONCEPTS3',
       concepts
     })
   }

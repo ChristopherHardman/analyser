@@ -10,10 +10,13 @@ class Sentiment extends React.Component {
 
 getSentiment = () => {
   console.log('GetSentiment Fired');
+  let target = this.props.search.input;
+  if (this.props.switch ==="2") target = this.props.search2;
+  if (this.props.switch ==="3") target = this.props.search3;
   const searchParams = new URLSearchParams();
   searchParams.append('key', '37bc84eb8886f5410c62335d9f653e8d');
   searchParams.append('lang', 'en');
-  searchParams.append('url', this.props.search.input);
+  searchParams.append('url', target);
     return fetch('http://api.meaningcloud.com/sentiment-2.1',  {
       method: 'POST',
       headers: {
@@ -23,32 +26,45 @@ getSentiment = () => {
       })
       .then(response => response.json())
       .then(response => {console.log('SENTIMENT', response)
+      if (this.props.switch ==="2") this.props.addSentiment2(response);
+      if (this.props.switch ==="3") this.props.addSentiment3(response);
         this.props.addSentiment(response);
     })
 }
 
 getPositivity() {
-    let test =  {sentiment: 'Very positive'}
     let sum = this.props.sentiment;
-    return <p><span>Positivity:</span> {sum.score_tag}</p>
+    if (this.props.switch ==="2") sum = this.props.sentiment2;
+    if (this.props.switch ==="3") sum = this.props.sentiment3;
+    let translation = { };
+    translation['P+'] = "Strong positive";
+    translation.P = "Positive";
+    translation.NEU =  "Neutral";
+    translation.N = "Negative";
+    translation['N+'] = "Strong negative";
+    translation.NONE = "Without sentiment";
+    return <p><span>Positivity: </span> <span className="sentimentData">{translation[sum.score_tag]}</span></p>
   }
 
 getConfidence() {
-    let test =  {sentiment: 'Very positive'}
     let sum = this.props.sentiment;
-    return <p><span>Confidence:</span> {sum.confidence}</p>
+    if (this.props.switch ==="2") sum = this.props.sentiment2;
+    if (this.props.switch ==="3") sum = this.props.sentiment3;
+    return <p><span>Confidence: </span> <span className="sentimentData">{sum.confidence}% </span></p>
   }
 
 getIrony() {
-    let test =  {sentiment: 'Very positive'}
     let sum = this.props.sentiment;
-    return <p><span>Irony:</span> {sum.irony}</p>
+    if (this.props.switch ==="2") sum = this.props.sentiment2;
+    if (this.props.switch ==="3") sum = this.props.sentiment3;
+    return <p><span>Irony: </span><span className="sentimentData">{sum.irony}</span></p>
   }
 
 getAgreement() {
-    let test =  {sentiment: 'Very positive'}
     let sum = this.props.sentiment;
-    return <p><span>Agreement:</span>{sum.agreement}</p>
+    if (this.props.switch ==="2") sum = this.props.sentiment2;
+    if (this.props.switch ==="3") sum = this.props.sentiment3;
+    return <p><span>Agreement: </span><span className="sentimentData">{sum.agreement}</span></p>
   }
 
 render () {
@@ -66,8 +82,12 @@ render () {
 
 const mapStateToProps = (state) => {
   return {
+    search: state.search,
+    search2: state.search2,
+    search3: state.search3,
     sentiment: state.sentiment,
-    search: state.search
+    sentiment2: state.sentiment2,
+    sentiment3: state.sentiment3
   }
 }
 
@@ -75,6 +95,14 @@ const mapDispatchToProps = (dispatch) => {
   return {
     addSentiment: (sentiment) => dispatch({
       type: 'ADD_SENTIMENT',
+      sentiment
+    }),
+    addSentiment2: (sentiment) => dispatch({
+      type: 'ADD_SENTIMENT2',
+      sentiment
+    }),
+    addSentiment3: (sentiment) => dispatch({
+      type: 'ADD_SENTIMENT3',
       sentiment
     })
   }

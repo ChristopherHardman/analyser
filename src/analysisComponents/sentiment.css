@@ -22,3 +22,8 @@ span {
   color: grey;
   font-size: 1.4em;
 }
+
+.sentimentData {
+  font-size: 1.4em;
+  color: #ED5E3F;
+}

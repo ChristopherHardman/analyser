@@ -3,7 +3,11 @@ const defaultState = {
   summary2: {},
   summary3: {},
   concepts: {},
+  concepts2: {},
+  concepts3: {},
   sentiment: {},
+  sentiment2: {},
+  sentiment3: {},
   search: {},
   search2: {},
   search3: {}
@@ -23,11 +27,11 @@ const reducer = (state = defaultState, action) => {
         ...state,
         summary: action.summary
       }
-  case 'ADD_SUMMARY2':
-    return {
-      ...state,
-      summary2: action.summary
-    }
+    case 'ADD_SUMMARY2':
+      return {
+        ...state,
+        summary2: action.summary
+      }
     case 'ADD_SUMMARY3':
       return {
         ...state,
@@ -48,10 +52,38 @@ const reducer = (state = defaultState, action) => {
           ...action.concepts
         }
       }
+    case 'ADD_CONCEPTS2':
+      return {
+        ...state,
+        concepts2: {
+          ...action.concepts
+        }
+      }
+    case 'ADD_CONCEPTS3':
+      return {
+        ...state,
+        concepts3: {
+          ...action.concepts
+        }
+      }
     case 'ADD_SENTIMENT':
       return {
         ...state,
         sentiment: {
+        ...action.sentiment
+        }
+      }
+    case 'ADD_SENTIMENT2':
+      return {
+        ...state,
+        sentiment2: {
+        ...action.sentiment
+        }
+      }
+    case 'ADD_SENTIMENT3':
+      return {
+        ...state,
+        sentiment3: {
         ...action.sentiment
         }
       }

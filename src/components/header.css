@@ -3,8 +3,14 @@
   margin-top: 15px;
 }
 
-a {
+.headerLink {
   font-size: 1.5em;
+  color: #ED5E3F;
   margin: 25px;
   font-family: 'Source Sans Pro', sans-serif;
+  background-color: white;
+  border-bottom: 1px solid #ED5E3F;
+  border-left: 1px solid #ED5E3F;
+  border-radius: 0px;
+
 }

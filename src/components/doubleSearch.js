@@ -1,7 +1,7 @@
 import React from 'react';
 import './doubleSearch.css';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route, Link, Redirect, withRouter} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import Progress from './progress'
 
 

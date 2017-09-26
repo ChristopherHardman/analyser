@@ -2,32 +2,30 @@ import React from 'react';
 import './sentiment.css';
 import { connect } from 'react-redux';
 
-
 class Sentiment extends React.Component {
   constructor(props) {
     super(props);
       this.getSentiment();
   }
 
-
-  getSentiment = () => {
-    console.log('GetSentiment Fired');
-    const searchParams = new URLSearchParams();
-    searchParams.append('key', '37bc84eb8886f5410c62335d9f653e8d');
-    searchParams.append('lang', 'en');
-    searchParams.append('url', this.props.search.input);
-      return fetch('http://api.meaningcloud.com/sentiment-2.1',  {
-        method: 'POST',
-        headers: {
-            'content-type': 'application/x-www-form-urlencoded',
-          },
-          body: searchParams
-        })
-        .then(response => response.json())
-        .then(response => {console.log('SENTIMENT', response)
-          this.props.addSentiment(response);
+getSentiment = () => {
+  console.log('GetSentiment Fired');
+  const searchParams = new URLSearchParams();
+  searchParams.append('key', '37bc84eb8886f5410c62335d9f653e8d');
+  searchParams.append('lang', 'en');
+  searchParams.append('url', this.props.search.input);
+    return fetch('http://api.meaningcloud.com/sentiment-2.1',  {
+      method: 'POST',
+      headers: {
+          'content-type': 'application/x-www-form-urlencoded',
+        },
+        body: searchParams
       })
-  }
+      .then(response => response.json())
+      .then(response => {console.log('SENTIMENT', response)
+        this.props.addSentiment(response);
+    })
+}
 
 getPositivity() {
     let test =  {sentiment: 'Very positive'}

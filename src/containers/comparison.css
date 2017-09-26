@@ -1,6 +1,7 @@
 .sentimentHolder {
   display: flex;
   justify-content: center;
+  margin: 5px;
 }
 
 .innerSentimentHolder {
@@ -10,7 +11,8 @@
 
 .summaryHolder {
   display: flex;
-  justify-content: center; 
+  justify-content: right;
+  margin: 5px;
 }
 
 .innerSummaryHolder {

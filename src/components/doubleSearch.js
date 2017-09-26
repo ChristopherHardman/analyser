@@ -2,6 +2,8 @@ import React from 'react';
 import './doubleSearch.css';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Link, Redirect, withRouter} from 'react-router-dom';
+import Progress from './progress'
+
 
 
 class DoubleSearch extends React.Component {
@@ -10,6 +12,7 @@ state = {
   input2: '',
   input3: '',
   redirect: false,
+  submit: false
 }
 
 clickHandler2 = (e) => {
@@ -18,7 +21,8 @@ clickHandler2 = (e) => {
     alert("Insufficient inputs detected")
     } else {
         this.props.addSearchDouble(this.state);
-        setTimeout(this.setState({redirect: true}), 5000);
+        this.setState({submit:true});                             //used to render progress bar
+        setTimeout(() => this.setState({redirect: true}), 15000); //need to pass function as a callback
     }
 }
 
@@ -37,7 +41,7 @@ inputChanged3 = (event) => {
 }
 
 render () {
-  if (!this.state.redirect) {
+  if (!this.state.redirect && !this.state.submit) {
   return (
     <div className="searchboxHolder2">
       <div className="inputHolder">
@@ -48,6 +52,15 @@ render () {
     </div>
   )
 }
+
+if (!this.state.redirect && this.state.submit) {
+return (
+  <div className="progressHolder">
+  <Progress />
+  </div>
+  )
+    }
+
 return (
   <Redirect to="/comparison" />
   )

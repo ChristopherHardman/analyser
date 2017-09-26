@@ -91,23 +91,23 @@ getEntities () {
   }
   }
 
-    getBubbles() {
-      let sum = [{Computer: 9}, {Printer: 8}, {Mouse:7}, {Screen: 7}, {Keyboard: 5}, {Modem: 4}, {Server: 3}, {Data: 1}];
-      let colors = ['red', 'yellow', 'green', 'blue', 'orange', 'purple', 'black'];
-        if (sum !== undefined) {
-          let res = [];
-          for (var i = 0; i < sum.length; i++) {
-            res.push(
-              <div className="bubble" style={
-                {width:sum[i][Object.keys(sum[i])]*20,
-                  height: sum[i][Object.keys(sum[i])]*20,
-                  background: colors[Math.floor(Math.random() * colors.length)]}}><p className="label">{Object.keys(sum[i])} : {sum[i][Object.keys(sum[i])]}</p></div>
-            )
-          }
-          return res
-          // return <div>{sum}</div>
+getBubbles() {
+  let sum = [{Computer: 9}, {Printer: 8}, {Mouse:7}, {Screen: 7}, {Keyboard: 5}, {Modem: 4}, {Server: 3}, {Data: 1}];
+  let colors = ['red', 'yellow', 'green', 'blue', 'orange', 'purple', 'black'];
+    if (sum !== undefined) {
+      let res = [];
+      for (var i = 0; i < sum.length; i++) {
+        res.push(
+          <div className="bubble" style={
+            {width:sum[i][Object.keys(sum[i])]*20,
+              height: sum[i][Object.keys(sum[i])]*20,
+              background: colors[Math.floor(Math.random() * colors.length)]}}><p className="label">{Object.keys(sum[i])} : {sum[i][Object.keys(sum[i])]}</p></div>
+        )
       }
-    }
+      return res
+      // return <div>{sum}</div>
+  }
+}
 
 render () {
   return (
@@ -119,7 +119,7 @@ render () {
             <div className="entityHolder"><h3>Entitites</h3>{this.getEntities()}</div>
             </div>
             <div className="bubbleHolder">
-              <h3>Key Concepts</h3>
+              <h3>Key Themes</h3>
                 <div className="innerBubbleHolder">{this.getBubbles()}</div>
                 </div>
 

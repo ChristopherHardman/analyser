@@ -45,3 +45,12 @@ button {
 button:hover {
   background-color: #D94323;
 }
+
+.progressHolder {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  margin-top: 50px;
+  background: white;
+  opacity: 0.9;
+}

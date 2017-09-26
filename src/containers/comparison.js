@@ -31,16 +31,16 @@ class Comparison extends React.Component {
           <Header />
           <Headline />
           <div>
-            <WordCount />
-            <WordCount />
+            <WordCount switch="2"/>
+            <WordCount switch="3"/>
           </div>
           <div className="summaryHolder">
             <div className="innerSummaryHolder"><Summary switch="2"/></div>
             <div className="innerSummaryHolder"><Summary switch="3"/></div>
           </div>
           <div className="sentimentHolder">
-            <div className="innerSentimentHolder"><Sentiment /></div>
-            <div className="innerSentimentHolder"><Sentiment /></div>
+            <div className="innerSentimentHolder"><Sentiment switch="2"/></div>
+            <div className="innerSentimentHolder"><Sentiment switch="3"/></div>
           </div>
           <Details />
         </div>

@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, Link, Redirect, withRouter} from 'react
 import Progress from './progress'
 
 
-
 class DoubleSearch extends React.Component {
 
 state = {

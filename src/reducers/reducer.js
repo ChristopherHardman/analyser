@@ -1,5 +1,7 @@
 const defaultState = {
   summary: {},
+  summary2: {},
+  summary3: {},
   concepts: {},
   sentiment: {},
   search: {},
@@ -17,10 +19,19 @@ const defaultState = {
 const reducer = (state = defaultState, action) => {
   switch (action.type) {
     case 'ADD_SUMMARY':
-    console.log('Received Summary')
       return {
         ...state,
         summary: action.summary
+      }
+  case 'ADD_SUMMARY2':
+    return {
+      ...state,
+      summary2: action.summary
+    }
+    case 'ADD_SUMMARY3':
+      return {
+        ...state,
+        summary3: action.summary
       }
     case 'ADD_SEARCH':
     console.log('Received Search term', action.search)
@@ -35,7 +46,7 @@ const reducer = (state = defaultState, action) => {
         ...state,
         concepts: {
           ...action.concepts
-        } 
+        }
       }
     case 'ADD_SENTIMENT':
       return {

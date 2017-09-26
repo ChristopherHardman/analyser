@@ -12,7 +12,7 @@ import './home.css';
 class Home extends React.Component {
     render () {
       return (
-         <MuiThemeProvider>
+        <MuiThemeProvider>
         <div className="homeHolder">
           <Header />
           <Headline />
@@ -20,7 +20,7 @@ class Home extends React.Component {
           <Searchbox />
           <div className="detailsHolder"><Details /></div>
         </div>
-          </MuiThemeProvider>
+        </MuiThemeProvider>
       )
     }
 }

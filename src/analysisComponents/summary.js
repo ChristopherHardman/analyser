@@ -10,26 +10,28 @@ class Summary extends React.Component {
 
 //gets article summary from the API. Can change summary length through sentence number.
   getDataSummarise = () => {
-      let target = this.props.search.input;
-      if (this.props.switch ==="2") target = this.props.search2;
-      if (this.props.switch ==="3") target = this.props.search3;
+    // show loading indicator
+    let target = this.props.search.input;
+    if (this.props.switch ==="2") target = this.props.search2;
+    if (this.props.switch ==="3") target = this.props.search3;
     const searchParams = new URLSearchParams();
     searchParams.append('key', '37bc84eb8886f5410c62335d9f653e8d');
     searchParams.append('lang', 'en');
     searchParams.append('url', target);
     searchParams.append('sentences', '10');
-      return fetch('http://api.meaningcloud.com/summarization-1.0',  {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/x-www-form-urlencoded',
-          },
-          body: searchParams
-        })
-        .then(response => response.json())
-        .then(response => {
-          if (this.props.switch ==="2") this.props.addSummary2(response);
-          if (this.props.switch ==="3") this.props.addSummary3(response);
-          this.props.addSummary(response);
+    return fetch('http://api.meaningcloud.com/summarization-1.0',  {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded',
+        },
+        body: searchParams
+    })
+    .then(response => response.json())
+    .then(response => {
+      if (this.props.switch ==="2") this.props.addSummary2(response);
+      if (this.props.switch ==="3") this.props.addSummary3(response);
+      this.props.addSummary(response);
+      // hide loading indicator
     })
 
   }

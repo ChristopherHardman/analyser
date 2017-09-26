@@ -71,13 +71,14 @@ h2 {
 
 .label {
   color: white;
-  opacity: 1.4;
+  opacity: 1;
 }
 
 .innerBubbleHolder {
   display: flex;
   align-items: center;
   justify-content: center;
+
 }
 
 .searchIndicator {

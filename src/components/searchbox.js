@@ -41,8 +41,9 @@ render () {
   if (!this.state.redirect && !this.state.submit) {
   return (
     <div className="searchboxHolder">
-      <input type="text" placeholder="Add website address here..." onChange={this.inputChanged} value={this.state.input} />
-      <button onClick={this.clickHandler} onKeyDown={this.buttonClick}>Submit</button>
+      <input type="text" placeholder="Add website address here..."
+        onChange={this.inputChanged} value={this.state.input} onKeyDown={this.buttonClick}/>
+      <button onClick={this.clickHandler}>Submit</button>
     </div>
     )
   }

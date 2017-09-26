@@ -101,26 +101,48 @@ getEntities () {
 getBubbles() {
   let temp = this.props.concepts.entity_list;
   if (temp !== undefined) {
-  let temp1 = temp.slice(0,9).map((arr)=> {arr.form});
-  console.log('TEMP', temp1);
-
-}
-  let sum = [{Computer: 9}, {Printer: 8}, {Mouse:7}, {Screen: 7}, {Keyboard: 5}, {Modem: 4}, {Server: 3}, {Data: 1}];
+  let temp1 = temp.slice(0,9).map((arr)=> arr.form);
   let colors = ['#bd4428', '#dc735b', '#d55639', '#977d78', '#c8c2c1', '#393432', '#681603', '#992005'];
-    if (sum !== undefined) {
-      let res = [];
-      for (var i = 0; i < sum.length; i++) {
-        res.push(
-          <div className="bubble" style={
-            {width:sum[i][Object.keys(sum[i])]*20,
-              height: sum[i][Object.keys(sum[i])]*20,
-              background: colors[Math.floor(Math.random() * colors.length)]}}><p className="label">{Object.keys(sum[i])} : {sum[i][Object.keys(sum[i])]}</p></div>
-        )
-      }
-      return res
-      // return <div>{sum}</div>
+  let res = [];
+  for (var i = 0; i < temp1.length; i++) {
+      let randNum = Math.round(Math.random()*10);
+      res.push(
+        <div className="bubble" style={
+          {width:randNum*20,
+            height: randNum*20,
+            background: colors[Math.floor(Math.random() * colors.length)]}}><p className="label">{temp1[i]}</p></div>
+      )
+    }
+    return res
+    }
   }
-}
+
+
+//
+// let temp2 = [];
+// temp1.map(elem => {
+//   let randNum = Math.round(Math.random()*10);
+//   temp2.push({elem : randNum})
+// });
+// console.log('TEMP', temp2);
+
+
+//   let sum = [{Computer: 9}, {Printer: 8}, {Mouse:7}, {Screen: 7}, {Keyboard: 5}, {Modem: 4}, {Server: 3}, {Data: 1}];
+//   let colors = ['#bd4428', '#dc735b', '#d55639', '#977d78', '#c8c2c1', '#393432', '#681603', '#992005'];
+//     if (sum !== undefined) {
+//       let res = [];
+//       for (var i = 0; i < sum.length; i++) {
+//         res.push(
+//           <div className="bubble" style={
+//             {width:sum[i][Object.keys(sum[i])]*20,
+//               height: sum[i][Object.keys(sum[i])]*20,
+//               background: colors[Math.floor(Math.random() * colors.length)]}}><p className="label">{Object.keys(sum[i])} : {sum[i][Object.keys(sum[i])]}</p></div>
+//         )
+//       }
+//       return res
+//       // return <div>{sum}</div>
+//   }
+// }
 
 render () {
   let search = '';

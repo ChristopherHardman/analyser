@@ -6,6 +6,10 @@
   margin: 5px;
 }
 
+.mainInnerSentimentHolder:first-child .sentimentHolder{  
+  border-left: none;
+}
+
 .mainInnerSentimentHolder {
   width: 45%;
   font-size: 1em;

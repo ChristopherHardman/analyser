@@ -15,6 +15,8 @@ getDataConcepts = () => {
     if (this.props.switch ==="2") target = this.props.search2;
     if (this.props.switch ==="3") target = this.props.search3;
     console.log('GetConcepts Fired');
+    console.log('SEARCH 2', this.props.search2);
+    console.log('SEARCH 3', this.props.search3);
     const searchParams = new URLSearchParams();
       searchParams.append('key', '37bc84eb8886f5410c62335d9f653e8d');
       searchParams.append('lang', 'en');
@@ -97,6 +99,12 @@ getEntities () {
   }
 
 getBubbles() {
+  let temp = this.props.concepts.entity_list;
+  if (temp !== undefined) {
+  let temp1 = temp.slice(0,9).map((arr)=> {arr.form});
+  console.log('TEMP', temp1);
+
+}
   let sum = [{Computer: 9}, {Printer: 8}, {Mouse:7}, {Screen: 7}, {Keyboard: 5}, {Modem: 4}, {Server: 3}, {Data: 1}];
   let colors = ['#bd4428', '#dc735b', '#d55639', '#977d78', '#c8c2c1', '#393432', '#681603', '#992005'];
     if (sum !== undefined) {
@@ -115,9 +123,15 @@ getBubbles() {
 }
 
 render () {
+  let search = '';
+  if (this.props.search.input !== 'undefined') search = this.props.search.input;
+  if (this.props.switch ==="2" && typeof  this.props.search2 !=='object') search = this.props.search2;
+  if (this.props.switch ==="3" && typeof this.props.search3 !=='object') search = this.props.search3;
+  console.log('SEARCH', search)
   return (
     <div className="BubbleContainer">
         <div className="frequency">
+            <div className="searchIndicator">Displaying analysis for: {search}</div>
             <div className="textHolder">
             <div className="conceptHolder"><h3>Concepts</h3>{this.getConcepts()}</div>
             <div className="entityHolder"><h3>Entitites</h3>{this.getEntities()}</div>

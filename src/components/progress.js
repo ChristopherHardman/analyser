@@ -34,7 +34,7 @@ class Progress extends React.Component {
   render() {
     return (
       <div className="progressHolder">
-        <h2 className="progressTitle">Loading...</h2>
+        <h2 className="progressTitle">Analysing data...</h2>
         <CircularProgress
           mode="determinate"
           value={this.state.completed}

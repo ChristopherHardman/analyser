@@ -89,7 +89,7 @@ render () {
         </div>
 
         <div className="confidenceBox">
-          <h3>Confidence Level</h3>
+          <h3 className="confidenceTitle">Confidence Level</h3>
           {this.getConfidence()}
         </div>
 

@@ -28,8 +28,12 @@ clickHandler = (e) => {
         console.log('INPUT', this.state);
         this.props.addSearch(this.state);
         this.setState({submit:true});
-        setTimeout(() => this.setState({redirect: true}), 20000);
+        setTimeout(() => this.setState({redirect: true}), 5000);
     }
+}
+
+buttonClick = (e) => {
+  if (e.keyCode === 13) this.clickHandler(e);
 }
 
 render () {
@@ -38,7 +42,7 @@ render () {
   return (
     <div className="searchboxHolder">
       <input type="text" placeholder="Add website address here..." onChange={this.inputChanged} value={this.state.input} />
-      <button onClick={this.clickHandler}>Submit</button>
+      <button onClick={this.clickHandler} onKeyDown={this.buttonClick}>Submit</button>
     </div>
     )
   }

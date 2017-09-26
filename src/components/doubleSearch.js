@@ -21,7 +21,7 @@ clickHandler2 = (e) => {
     } else {
         this.props.addSearchDouble(this.state);
         this.setState({submit:true});                             //used to render progress bar
-        setTimeout(() => this.setState({redirect: true}), 20000); //need to pass function as a callback
+        setTimeout(() => this.setState({redirect: true}), 5000); //need to pass function as a callback
     }
 }
 

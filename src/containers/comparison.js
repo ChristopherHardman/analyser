@@ -8,40 +8,29 @@ import Summary from '../analysisComponents/summary'
 import Sentiment from '../analysisComponents/sentiment'
 
 class Comparison extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //
-  //   props.compareSearches.forEach(search => {
-  //     fetch(…)
-  //     .then(// dispatch the sentiment and append the result)
-  //   })
-  // }
-  //
-  // renderSentiments() {
-  //   return this.props.comparedSentiments(sentiment => {
-  //     return <div className="innerSentimentHolder">
-  //       <Sentiment sentiment={sentiment} />
-  //     </div>
-  //   })
-  // }
+
 
     render () {
       return (
-        <div>
+        <div >
           <Header />
           <Headline />
+
           <div>
             <WordCount switch="2"/>
             <WordCount switch="3"/>
           </div>
-          <div className="summaryHolder">
-            <div className="innerSummaryHolder"><Summary switch="2"/></div>
-            <div className="innerSummaryHolder"><Summary switch="3"/></div>
+
+          <div className="metaSummaryHolder">
+            <div className="mainInnerSummaryHolder"><Summary switch="2"/></div>
+            <div className="mainInnerSummaryHolder"><Summary switch="3"/></div>
           </div>
-          <div className="sentimentHolder">
-            <div className="innerSentimentHolder"><Sentiment switch="2"/></div>
-            <div className="innerSentimentHolder"><Sentiment switch="3"/></div>
+
+          <div className="metaSentimentHolder">
+            <div className="mainInnerSentimentHolder"><Sentiment switch="2"/></div>
+            <div className="mainInnerSentimentHolder"><Sentiment switch="3"/></div>
           </div>
+
           <Details />
         </div>
       )

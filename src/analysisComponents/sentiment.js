@@ -43,38 +43,58 @@ getPositivity() {
     translation.N = "Negative";
     translation['N+'] = "Strong negative";
     translation.NONE = "Without sentiment";
-    return <p><span>Positivity: </span> <span className="sentimentData">{translation[sum.score_tag]}</span></p>
+    return <p><span className="positivityDataLabel">Positivity: </span> <span className="positivityDataValue">{translation[sum.score_tag]}</span></p>
   }
 
 getConfidence() {
     let sum = this.props.sentiment;
     if (this.props.switch ==="2") sum = this.props.sentiment2;
     if (this.props.switch ==="3") sum = this.props.sentiment3;
-    return <p><span>Confidence: </span> <span className="sentimentData">{sum.confidence}% </span></p>
+    return <p><span className="sentimentDataConfidence">{sum.confidence}%</span></p>
   }
 
 getIrony() {
     let sum = this.props.sentiment;
     if (this.props.switch ==="2") sum = this.props.sentiment2;
     if (this.props.switch ==="3") sum = this.props.sentiment3;
-    return <p><span>Irony: </span><span className="sentimentData">{sum.irony}</span></p>
+    return <p className="sentimentData">{sum.irony}</p>
   }
 
 getAgreement() {
     let sum = this.props.sentiment;
     if (this.props.switch ==="2") sum = this.props.sentiment2;
     if (this.props.switch ==="3") sum = this.props.sentiment3;
-    return <p><span>Agreement: </span><span className="sentimentData">{sum.agreement}</span></p>
+    return <p className="sentimentData">{sum.agreement}</p>
   }
+
+  getObjectivity() {
+      let sum = this.props.sentiment;
+      if (this.props.switch ==="2") sum = this.props.sentiment2;
+      if (this.props.switch ==="3") sum = this.props.sentiment3;
+      return <p className="sentimentData">{sum.subjectivity}</p>
+    }
 
 render () {
   return (
     <div className="sentimentHolder">
-      <h2>Sentiment</h2>
-      <div className="sentimentScore">{this.getPositivity()}</div>
-      <div className="sentimentScore">{this.getConfidence()}</div>
-      <div className="sentimentScore">{this.getIrony()}</div>
-      <div className="sentimentScore">{this.getAgreement()}</div>
+    <h3>Sentiment</h3>
+        <div className="positivityScore">{this.getPositivity()}</div>
+
+      <div className="innerSentimentHolder">
+
+        <div className="listHolder">
+          <div className="sentimentScore"><h3>Irony</h3>{this.getIrony()}</div>
+          <div className="sentimentScore"><h3>Agreement</h3>{this.getAgreement()}</div>
+          <div className="sentimentScore"><h3>Objectivity</h3>{this.getObjectivity()}</div>
+        </div>
+
+        <div className="confidenceBox">
+          <h3>Confidence Level</h3>
+          {this.getConfidence()}
+        </div>
+
+      </div>
+
     </div>
     )
   }

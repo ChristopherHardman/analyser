@@ -28,7 +28,7 @@ clickHandler = (e) => {
         console.log('INPUT', this.state);
         this.props.addSearch(this.state);
         this.setState({submit:true});
-        setTimeout(() => this.setState({redirect: true}), 15000);
+        setTimeout(() => this.setState({redirect: true}), 20000);
     }
 }
 

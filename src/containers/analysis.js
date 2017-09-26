@@ -14,8 +14,10 @@ class Analysis extends React.Component {
           <Header />
           <Headline />
           <WordCount />
-          <Summary />
-          <Sentiment />
+          <div className="summaryAndSentiment">
+            <Summary />
+            <Sentiment />
+          </div>
           <Details />
         </div>
       )

@@ -98,7 +98,7 @@ getEntities () {
 
 getBubbles() {
   let sum = [{Computer: 9}, {Printer: 8}, {Mouse:7}, {Screen: 7}, {Keyboard: 5}, {Modem: 4}, {Server: 3}, {Data: 1}];
-  let colors = ['red', 'yellow', 'green', 'blue', 'orange', 'purple', 'black'];
+  let colors = ['#bd4428', '#dc735b', '#d55639', '#977d78', '#c8c2c1', '#393432', '#681603', '#992005'];
     if (sum !== undefined) {
       let res = [];
       for (var i = 0; i < sum.length; i++) {
@@ -117,7 +117,6 @@ getBubbles() {
 render () {
   return (
     <div className="BubbleContainer">
-      <h2 className="WordCountTitle">Word Frequency</h2>
         <div className="frequency">
             <div className="textHolder">
             <div className="conceptHolder"><h3>Concepts</h3>{this.getConcepts()}</div>

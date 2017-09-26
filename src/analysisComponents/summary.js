@@ -54,7 +54,7 @@ getSummary() {
 render () {
   return (
     <div className="summaryMain">
-      <h2>Summary</h2>
+      <h3>Summary</h3>
       <div className="summaryHolder">{this.getSummary()}</div>
     </div>
     )

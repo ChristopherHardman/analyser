@@ -1,22 +1,23 @@
+.summaryMain {
+  width: 50%;
+  margin-top: 10px;
+}
+
 .summaryHolder {
-  margin: 10px;
+  margin: 15px;
   padding-left: 35px;
   padding-right: 35px;
   color: grey;
-  border-bottom: 1px solid #ED5E3F;
   display: flex;
   flex-direction: column;
 }
 
-.summaryMain {
-  margin-top: 25px;
-}
 
 li {
   margin-bottom: 15px;
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-h2 {
-  color: #ED5E3F;
+h3 {
+  color: grey;
 }

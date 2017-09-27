@@ -36,9 +36,9 @@ class Progress extends React.Component {
       <div className="progressHolder">
         <h2 className="progressTitle">Analysing data...</h2>
         <CircularProgress
-          mode="determinate"
+          mode="indeterminate"
           value={this.state.completed}
-          size={80}
+          size={150}
           thickness={5}
           style={{
             color: '#FF9800',

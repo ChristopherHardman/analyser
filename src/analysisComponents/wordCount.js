@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 class WordCount extends React.Component {
   constructor(props) {
     super(props);
-    this.getDataConcepts();
+    // this.getDataConcepts();
   }
 
 
@@ -39,38 +39,38 @@ getDataConcepts = () => {
         }
 
 
-getWatson = () => {
-        var NaturalLanguageUnderstandingV1 = require('watson-developer-cloud/natural-language-understanding/v1.js');
-        var natural_language_understanding = new NaturalLanguageUnderstandingV1({
-          'username': '874708dc-bc4a-4bc1-b18c-f955795228eb',
-          'password': 'ufpsegTsKYch',
-          'version_date': '2017-02-27'
-        });
-
-        var parameters = {
-          'text': 'IBM is an American multinational technology company headquartered in Armonk, New York, United States, with operations in over 170 countries.',
-          'features': {
-            'entities': {
-              'emotion': true,
-              'sentiment': true,
-              'limit': 2
-            },
-            'keywords': {
-              'emotion': true,
-              'sentiment': true,
-              'limit': 2
-            }
-          }
-        }
-
-        natural_language_understanding.analyze(parameters, function(err, response) {
-          if (err)
-            console.log('error:', err);
-          else
-            console.log(JSON.stringify(response, null, 2));
-        });
-
-    }
+// getWatson = () => {
+//         var NaturalLanguageUnderstandingV1 = require('watson-developer-cloud/natural-language-understanding/v1.js');
+//         var natural_language_understanding = new NaturalLanguageUnderstandingV1({
+//           'username': '874708dc-bc4a-4bc1-b18c-f955795228eb',
+//           'password': 'ufpsegTsKYch',
+//           'version_date': '2017-02-27'
+//         });
+//
+//         var parameters = {
+//           'text': 'IBM is an American multinational technology company headquartered in Armonk, New York, United States, with operations in over 170 countries.',
+//           'features': {
+//             'entities': {
+//               'emotion': true,
+//               'sentiment': true,
+//               'limit': 2
+//             },
+//             'keywords': {
+//               'emotion': true,
+//               'sentiment': true,
+//               'limit': 2
+//             }
+//           }
+//         }
+//
+//         natural_language_understanding.analyze(parameters, function(err, response) {
+//           if (err)
+//             console.log('error:', err);
+//           else
+//             console.log(JSON.stringify(response, null, 2));
+//         });
+//
+//     }
 
 getConcepts () {
   let temp = this.props.concepts.concept_list;
@@ -88,7 +88,7 @@ getConcepts () {
 getEntities () {
   let temp = this.props.concepts.entity_list;
   if (this.props.switch ==="2") temp = this.props.concepts2.entity_list;
-  if (this.props.switch ==="3") temp = this.props.concepts.entity_list;
+  if (this.props.switch ==="3") temp = this.props.concepts3.entity_list;
   let res = [];
   if (temp !== undefined){
   for (var i = 0; i < temp.length; i++) {
@@ -98,8 +98,11 @@ getEntities () {
   }
   }
 
+//Concept count API not working so need to find alternative to the placeholder below
 getBubbles() {
   let temp = this.props.concepts.entity_list;
+  if (this.props.switch ==="2") temp = this.props.concepts2.entity_list;
+  if (this.props.switch ==="3") temp = this.props.concepts3.entity_list;
   if (temp !== undefined) {
   let temp1 = temp.slice(0,9).map((arr)=> arr.form);
   let colors = ['#bd4428', '#dc735b', '#d55639', '#977d78', '#c8c2c1', '#393432', '#681603', '#992005'];

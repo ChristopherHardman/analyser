@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 class Summary extends React.Component {
   constructor(props) {
     super(props);
-    this.getDataSummarise();
+    // this.getDataSummarise();
   }
 
 //gets article summary from the API. Can change summary length through sentence number.

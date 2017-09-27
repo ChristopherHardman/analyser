@@ -3,8 +3,10 @@
   display: flex;
   justify-content: center;
   margin: auto;
+  margin-top: 75px;
 }
 
 .progressTitle {
-  margin-top: 25px;
+  margin-top: 35px;
+  margin-right: 20px;
 }

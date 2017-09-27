@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 class Sentiment extends React.Component {
   constructor(props) {
     super(props);
-      this.getSentiment();
+      // this.getSentiment();
   }
 
 getSentiment = () => {
